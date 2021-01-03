@@ -1,0 +1,4 @@
+cqlsh -e "CREATE INDEX on mike.spaceship ( model )"
+cqlsh -e "CREATE INDEX on mike.spaceship ( id, model )"
+
+select count(*) FROM mike.spaceship WHERE spaceship_query = model:P%
