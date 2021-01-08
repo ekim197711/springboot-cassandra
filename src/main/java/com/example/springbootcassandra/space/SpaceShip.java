@@ -9,6 +9,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
 import org.springframework.data.cassandra.core.mapping.*;
 
+import java.util.UUID;
+
 
 @Data
 @AllArgsConstructor
@@ -16,7 +18,7 @@ import org.springframework.data.cassandra.core.mapping.*;
 @Table("spaceship")
 public class SpaceShip {
     @PrimaryKey
-    private String id;
+    private UUID id;
     private String model;
     @Embedded(onEmpty = Embedded.OnEmpty.USE_NULL)
     private Captain captain;

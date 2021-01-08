@@ -23,22 +23,13 @@ public class SpaceShipRepositoryTest {
     public void tryCas(){
         repository.deleteAll();
 
-        Faker faker = new Faker(Locale.getDefault());
+        SpaceShipDummyData spaceShipDummyData = new SpaceShipDummyData();
         for (int i = 0; i < 1000; i++) {
-            Captain captain = new Captain(faker.name().firstName(), faker.name().title());
-            Captain secondcaptain = new Captain(faker.name().firstName(), faker.name().title());
-            SpaceShip spaceShip = new SpaceShip(
-                    Uuids.timeBased().toString(),
-                    faker.space().planet(),
-                    captain,
-                    secondcaptain,
-                    faker.number().numberBetween(10, 100)
-            );
-            repository.save(spaceShip);
+            repository.save(spaceShipDummyData.createOne());
         }
-        List<SpaceShip> p = repository.findByModelStartingWith("Mars");
-        for (SpaceShip spaceShip : p) {
-            System.out.println(spaceShip);
-        }
+//        List<SpaceShip> p = repository.findByModelStartingWith("Mars");
+//        for (SpaceShip spaceShip : p) {
+//            System.out.println(spaceShip);
+//        }
     }
 }

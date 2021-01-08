@@ -4,5 +4,4 @@ services:
   mycassandra:
     image: cassandra:4.0
     ports:
-#      - 7000:7000
       - 9042:9042
